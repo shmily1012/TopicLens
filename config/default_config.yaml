@@ -1,0 +1,27 @@
+api_keys:
+  deepseek: ${DEEPSEEK_API_KEY}
+  google: ${GOOGLE_API_KEY}
+
+sources:
+  google:
+    endpoint: "https://www.googleapis.com/customsearch/v1"
+    cx: ${GOOGLE_CX_ID}
+  arxiv:
+    endpoint: "http://export.arxiv.org/api/query"
+    max_results: 50
+
+processing:
+  batch_size: 32
+  max_retries: 3
+  rate_limit: 1
+  timeout: 10
+
+analysis:
+  embedding_model: "text-embedding-001"
+  clustering:
+    min_cluster_size: 5
+    min_samples: 3
+  dimensionality:
+    n_components: 50
+    n_neighbors: 15
+    min_dist: 0.1 
